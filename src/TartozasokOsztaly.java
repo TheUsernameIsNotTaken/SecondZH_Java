@@ -39,9 +39,9 @@ class Debit{
      * @return A keresett adósság, vagy null.
      */
     public static Debit searchInList(String loaner, String debtor, List<Debit> debits){
-        for(int x = 0; x < debits.size(); x++){
-            if(debits.get(x).loaner.equals(loaner) && debits.get(x).debtor.equals(debtor)){
-                return debits.get(x);
+        for (Debit debit : debits) {
+            if (debit.loaner.equals(loaner) && debit.debtor.equals(debtor)) {
+                return debit;
             }
         }
         return null;
@@ -82,7 +82,7 @@ public class TartozasokOsztaly {
             }
         }
         // Rendezés és kiírás
-        Collections.sort(debits, Comparator.comparing(Debit::getDebtor).thenComparing(Debit::getLoaner));
+        debits.sort(Comparator.comparing(Debit::getDebtor).thenComparing(Debit::getLoaner));
         debits.forEach( item -> System.out.println(item.toString()) );
     }
 }
