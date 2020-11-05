@@ -13,7 +13,7 @@ public class Trip {
         private int km;
 
         /**
-         * Generál konstruktor
+         * Generált konstruktor
          * @param name A túra neve.
          * @param km A túra hossza.
          */
