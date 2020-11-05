@@ -13,7 +13,7 @@ public class Trip {
         private int km;
 
         /**
-         * Generált konstruktor
+         * Alt+Insert-tel generált alap konstruktor
          * @param name A túra neve.
          * @param km A túra hossza.
          */
@@ -68,7 +68,7 @@ public class Trip {
                 value.add(new Data(datas[0], Integer.parseInt(tripkm[1])));
             }
         }
-        //Kiíratáshoz egy StrinJoiner segítségét használom.
+        //Kiíratáshoz egy StringJoiner segítségét használom.
         for (Map.Entry<String, Set<Data>> entry : map.entrySet()) {
             StringJoiner sj = new StringJoiner(", ");
             for (Data item : entry.getValue()) {
