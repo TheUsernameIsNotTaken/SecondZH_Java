@@ -8,23 +8,39 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+//Saját város osztályt használok az adatok tárolásához.
 class City{
     private String name;
     private int population;
 
+    /**
+     * Egy várost hoz létre.
+     * @param name A város neve.
+     * @param population A város lakossága.
+     */
     public City(String name, int population) {
         this.name = name;
         this.population = population;
     }
 
-    public String getName() {
-        return name.toLowerCase();
-    }
+    /**
+     * A város nevének gettere.
+     * @return A város neve String-ként.
+     */
+    public String getName() { return name; }
 
+    /**
+     * A város lakosságának gettere.
+     * @return A város lakosainak száma int-ként.
+     */
     public int getPopulation() {
         return population;
     }
 
+    /**
+     * A Város adatai szövegként.
+     * @return Városnév (lakosság)
+     */
     @Override
     public String toString() {
         return name + " (" + population + ')';
@@ -56,15 +72,18 @@ public class Jelenlet {
         }
         //Normál esetben szűrök, rendezek és kiíratok.
         else{
+            //Szűrés
             List<City> smallerCities = new ArrayList<City>(cities
                     .stream()
                     .filter(c -> c.getPopulation() < finalMaxPopulation)
                     .collect(Collectors.toList())
             );
+            //Rendezés
             smallerCities.sort(Comparator
                     .comparing(City::getPopulation, Comparator.reverseOrder())
                     .thenComparing(City::getName, Comparator.reverseOrder())
             );
+            //Kiíratás
             for(City item : smallerCities){
                 System.out.println(item.toString());
             }
